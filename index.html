@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PorsiKompak - Group Order Mahasiswa</title>
+  
+  <!-- SEO Best Practices -->
+  <meta name="description" content="PorsiKompak: Solusi makanan untuk group order mahasiswa. Makan enak, patungan gampang.">
+  <meta name="keywords" content="makanan mahasiswa, group order, katering, ayam geprek, patungan">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- AOS CSS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  
+  <!-- Phosphor Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Loading Animation Overlay -->
+  <div class="loader" id="loader">
+    <h1 class="loader-text text-uppercase m-0 d-flex align-items-center justify-content-center">
+      <span class="text-white me-2">PORSI</span><span class="text-warning text-accent">KOMPAK</span>
+    </h1>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-white brutalist-border-bottom sticky-top py-3" id="mainNav">
+    <div class="container-fluid px-4 px-lg-5">
+      <a class="navbar-brand text-uppercase fw-bold m-0 p-0 fs-1 lh-1 brand-heading d-flex align-items-center" href="#">
+        <i class="ph-fill ph-fire text-warning me-2" style="font-size: 2.5rem; text-shadow: 2px 2px 0px #000;"></i>
+        PORSIKOMPAK
+      </a>
+      <button class="navbar-toggler p-2 border border-2 border-dark rounded-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="ph ph-list fs-2"></i>
+      </button>
+      <div class="collapse navbar-collapse fw-bold mt-3 mt-lg-0" id="navbarContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 fs-5 text-uppercase" style="letter-spacing: 0.5px;">
+          <li class="nav-item"><a class="nav-link px-lg-4 hover-highlight" href="#about">Tentang Kami</a></li>
+          <li class="nav-item"><a class="nav-link px-lg-4 hover-highlight" href="#menu">Menu</a></li>
+          <li class="nav-item"><a class="nav-link px-lg-4 hover-highlight" href="#calculator">Patungan</a></li>
+        </ul>
+        <button class="btn btn-dark brutalist-btn ms-lg-4 fw-bold fs-5 d-flex align-items-center px-4" type="button" data-bs-toggle="offcanvas" data-bs-target="#cartSidebar" id="navCartBtn">
+          <i class="ph-fill ph-shopping-bag text-warning fs-3 me-2"></i> ORDER (<span id="cartCount">0</span>)
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero-split brutalist-border-bottom d-flex flex-column flex-lg-row">
+    <div class="hero-content d-flex align-items-center p-4 p-lg-5 w-100 w-lg-50 bg-white" style="min-height: 85vh;">
+      <div class="text-content w-100">
+        <div class="badge bg-warning text-dark border border-2 border-dark rounded-0 px-3 py-2 fw-bold text-uppercase mb-4 shadow-brutal-dark-sm d-inline-block" data-aos="fade-up">#1 Solusi Akhir Bulan</div>
+        <h1 class="display-heading fw-bold text-uppercase mb-4 text-dark hero-title" data-aos="fade-up" data-aos-delay="100">
+          MAKAN BENER,<br>
+          <span class="text-white" style="text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, 4px 4px 0 var(--accent);">BAYAR CINCIN.</span>
+        </h1>
+        <p class="fs-4 mb-5 fw-semibold text-dark opacity-100" style="max-width: 500px;" data-aos="fade-up" data-aos-delay="200">
+          Solusi makan enak porsi kuli buat mahasiswa. Patungan gampang, perut kenyang bareng tanpa drama.
+        </p>
+        <div class="d-flex flex-wrap gap-3" data-aos="fade-up" data-aos-delay="300">
+          <a href="#menu" class="btn btn-warning brutalist-btn-lg fw-bold fs-4 px-5 py-3 text-uppercase d-inline-flex align-items-center">
+            Pesan Sekarang <i class="ph-bold ph-arrow-right ms-2 fs-3"></i>
+          </a>
+          <a href="#calculator" class="btn btn-dark brutalist-btn-lg fw-bold fs-4 px-5 py-3 text-uppercase d-inline-flex align-items-center text-white">
+            <i class="ph-bold ph-calculator ms-0 me-2 fs-3 text-warning"></i> Bagi Rata
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Hero Media System (Flexible Image/Video) -->
+    <div class="hero-media-container w-100 w-lg-50" data-aos="fade-left" data-aos-delay="400" data-aos-duration="1000">
+      <div class="hero-media" id="heroMedia">
+        <!-- Content injected by JS -->
+      </div>
+    </div>
+  </header>
+
+  <!-- About Us Section -->
+  <section id="about" class="about-us bg-dark text-light brutalist-border-bottom" style="padding-top: 8rem; padding-bottom: 8rem;">
+    <div class="container px-4 px-lg-5">
+      <div class="row align-items-center">
+        <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right">
+          <h2 class="display-heading fw-bold text-warning mb-4" style="line-height: .9;">BUKAN SEKADAR<br><span class="text-white">KENYANG.</span></h2>
+          <div class="brutal-line bg-warning mb-4" style="height: 6px; width: 80px; text-shadow: none;"></div>
+          <p class="fs-4 fw-semibold text-light mb-4" style="line-height: 1.6;">
+            PorsiKompak lahir dari jeritan mahasiswa kosan. Indomie terus kapan sehatnya? Mau makan enak dompet nangis.
+          </p>
+          <p class="fs-4 text-light opacity-75" style="line-height: 1.6;">
+            Akhirnya kita bikin <strong class="text-warning">Revolusi</strong>: Masakan rumah porsi jumbo yang harganya hancur kalau dibeli rombongan. Gak ada lagi drama "bayarin dulu nanti gw ganti".
+          </p>
+        </div>
+        <div class="col-lg-5 offset-lg-1 d-flex align-items-center justify-content-center" data-aos="zoom-in" data-aos-delay="200">
+          <div class="position-relative w-100">
+            <img src="https://images.unsplash.com/photo-1543353071-873f17a7a088?q=80&w=800&auto=format&fit=crop" class="img-fluid border border-4 border-warning shadow-brutal-warning w-100 object-fit-cover" alt="Kompak Makan" style="height: 450px;">
+            <div class="position-absolute bg-white text-dark border border-3 border-dark shadow-brutal-dark p-3 fw-bold fs-3 text-uppercase" style="bottom: -20px; right: -20px; z-index: 2; transform: rotate(-3deg);">
+              Bisa QR BTW !!!
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Menu System (2 Columns on Mobile) -->
+  <section id="menu" class="menu-system py-5 bg-white brutalist-border-bottom">
+    <div class="container-fluid px-4 px-lg-5 py-5">
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end mb-5 border-bottom border-dark border-4 pb-3" data-aos="fade-up">
+        <h2 class="display-heading m-0 fw-bold mb-3 mb-md-0" style="font-size: 5rem;">MENU ROMBONGAN</h2>
+        <span class="fs-3 fw-bold p-3 bg-warning border border-3 border-dark text-dark shadow-brutal-dark-sm pb-2 d-inline-block text-uppercase">
+          <i class="ph-fill ph-star me-2"></i>PASTI KENYANG
+        </span>
+      </div>
+
+      <div class="row g-3 g-lg-5" id="productList">
+        
+        <!-- Item 1 -->
+        <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+          <div class="card brutalist-card h-100 border-3 border-dark rounded-0 bg-white">
+            <div class="position-relative">
+              <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?q=80&w=600&auto=format&fit=crop" class="card-img-top border-bottom border-3 border-dark rounded-0 object-fit-cover" alt="Geprek Geng" style="height: 220px; width: 100%;">
+              <div class="position-absolute top-0 start-0 bg-dark text-warning fw-bold px-2 py-1 border-bottom border-end border-3 border-dark fs-6 text-uppercase">
+                Porsi 4 Org
+              </div>
+            </div>
+            <div class="card-body p-3 p-md-4 d-flex flex-column">
+              <h3 class="card-title fw-bold text-uppercase m-0 fs-3 mb-2" style="font-family: var(--font-heading);">Ayam Geprek Geng</h3>
+              <p class="card-text text-muted mb-3 fw-semibold small">Bonus nasi sebakul dan lalapan melimpah.</p>
+              
+              <div class="price-tag fs-3 fw-bold text-dark mb-3 pe-2 display-heading" style="line-height:1;">Rp 80.000</div>
+              
+              <label class="fw-bold small text-uppercase mb-1">Topping Bebas:</label>
+              <select class="form-select brutalist-input mb-4 topping-select py-2 fw-semibold fs-6 px-2">
+                <option value="">Tanpa Topping Tambahan</option>
+                <option value="Telor Dadar 4x">Telor Dadar 4x (+Rp15k)</option>
+                <option value="Kulit Crispy Jumbo">Kulit Crispy Jumbo (+Rp20k)</option>
+              </select>
+              
+              <button class="btn btn-warning brutalist-btn w-100 mt-auto fw-bold py-3 fs-5 add-to-cart text-uppercase text-dark align-items-center justify-content-center d-flex" data-id="1" data-name="Ayam Geprek Geng" data-price="80000">
+                <i class="ph-bold ph-plus me-2 fs-4"></i> GASS!
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+          <div class="card brutalist-card h-100 border-3 border-dark rounded-0 bg-white">
+            <div class="position-relative">
+              <img src="https://images.unsplash.com/photo-1563379926898-05f4575a45d8?q=80&w=600&auto=format&fit=crop" class="card-img-top border-bottom border-3 border-dark rounded-0 object-fit-cover" alt="Nasi Goreng" style="height: 220px; width: 100%;">
+              <div class="position-absolute top-0 start-0 bg-warning text-dark fw-bold px-2 py-1 border-bottom border-end border-3 border-dark fs-6 text-uppercase">
+                Porsi 5 Org
+              </div>
+            </div>
+            <div class="card-body p-3 p-md-4 d-flex flex-column">
+              <h3 class="card-title fw-bold text-uppercase m-0 fs-3 mb-2" style="font-family: var(--font-heading);">Nasgor Kuli Baper</h3>
+              <p class="card-text text-muted mb-3 fw-semibold small">Gurih, pedas, porsi nggak masuk akal.</p>
+              
+              <div class="price-tag fs-3 fw-bold text-dark mb-3 pe-2 display-heading" style="line-height:1;">Rp 95.000</div>
+              
+              <label class="fw-bold small text-uppercase mb-1">Level Pedas / Topping:</label>
+              <select class="form-select brutalist-input mb-4 topping-select py-2 fw-semibold fs-6 px-2">
+                <option value="Normal">Pedas Normal</option>
+                <option value="Siksa Neraka">Pedas Siksa Neraka (+Rp5k)</option>
+                <option value="Ekstra Sosis Spesial">Sosis Spesial (+Rp15k)</option>
+              </select>
+              
+              <button class="btn btn-warning brutalist-btn w-100 mt-auto fw-bold py-3 fs-5 add-to-cart text-uppercase text-dark align-items-center justify-content-center d-flex" data-id="2" data-name="Nasgor Kuli" data-price="95000">
+                <i class="ph-bold ph-plus me-2 fs-4"></i> GASS!
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Item 3 -->
+        <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+          <div class="card brutalist-card h-100 border-3 border-dark rounded-0 bg-white">
+            <div class="position-relative">
+              <img src="https://images.unsplash.com/photo-1569058242253-92a9c755a0ec?q=80&w=600&auto=format&fit=crop" class="card-img-top border-bottom border-3 border-dark rounded-0 object-fit-cover" alt="Ayam Bakar" style="height: 220px; width: 100%;">
+              <div class="position-absolute top-0 start-0 bg-dark text-white fw-bold px-2 py-1 border-bottom border-end border-3 border-dark fs-6 text-uppercase">
+                Porsi 4 Org
+              </div>
+            </div>
+            <div class="card-body p-3 p-md-4 d-flex flex-column">
+              <h3 class="card-title fw-bold text-uppercase m-0 fs-3 mb-2" style="font-family: var(--font-heading);">Ayam Bakar Madu</h3>
+              <p class="card-text text-muted mb-3 fw-semibold small">Buka pake nasi anget? Kelar idup lo.</p>
+              
+              <div class="price-tag fs-3 fw-bold text-dark mb-3 pe-2 display-heading" style="line-height:1;">Rp 85.000</div>
+              
+              <label class="fw-bold small text-uppercase mb-1">Topping Bebas:</label>
+              <select class="form-select brutalist-input mb-4 topping-select py-2 fw-semibold fs-6 px-2">
+                <option value="">Tanpa Topping Tambahan</option>
+                <option value="Sambel Ijo 200gr">Sambel Ijo 200gr (+Rp10k)</option>
+                <option value="Sate Usus 5 Tsk">Sate Usus 5x (+Rp15k)</option>
+              </select>
+              
+              <button class="btn btn-warning brutalist-btn w-100 mt-auto fw-bold py-3 fs-5 add-to-cart text-uppercase text-dark align-items-center justify-content-center d-flex" data-id="3" data-name="Ayam Bakar Madu" data-price="85000">
+                <i class="ph-bold ph-plus me-2 fs-4"></i> GASS!
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="400">
+          <div class="card brutalist-card h-100 border-3 border-dark rounded-0 bg-white">
+            <div class="position-relative">
+              <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=600&auto=format&fit=crop" class="card-img-top border-bottom border-3 border-dark rounded-0 object-fit-cover" alt="Sate" style="height: 220px; width: 100%;">
+              <div class="position-absolute top-0 start-0 bg-warning text-dark fw-bold px-2 py-1 border-bottom border-end border-3 border-dark fs-6 text-uppercase">
+                Snack
+              </div>
+            </div>
+            <div class="card-body p-3 p-md-4 d-flex flex-column">
+              <h3 class="card-title fw-bold text-uppercase m-0 fs-3 mb-2" style="font-family: var(--font-heading);">Cemilan Rapat</h3>
+              <p class="card-text text-muted mb-3 fw-semibold small">Mix platter sosis, kentang, basreng.</p>
+              
+              <div class="price-tag fs-3 fw-bold text-dark mb-3 pe-2 display-heading" style="line-height:1;">Rp 50.000</div>
+              
+              <label class="fw-bold small text-uppercase mb-1">Ekstra Saus:</label>
+              <select class="form-select brutalist-input mb-4 topping-select py-2 fw-semibold fs-6 px-2">
+                <option value="Mayo & Sambal">Mayo & Sambal Standar</option>
+                <option value="Cheese Sauce">Keju Lumer (+Rp8k)</option>
+              </select>
+              
+              <button class="btn btn-warning brutalist-btn w-100 mt-auto fw-bold py-3 fs-5 add-to-cart text-uppercase text-dark align-items-center justify-content-center d-flex" data-id="4" data-name="Cemilan Rapat" data-price="50000">
+                <i class="ph-bold ph-plus me-2 fs-4"></i> GASS!
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Group Calculator -->
+  <section id="calculator" class="group-calc py-5 bg-warning brutalist-border-bottom border-dark position-relative overflow-hidden text-dark text-uppercase">
+    <div class="position-absolute top-0 end-0 opacity-25" style="transform: rotate(15deg); margin:-10% -10% 0 0; z-index:0;">
+      <i class="ph-fill ph-calculator text-dark" style="font-size: 40rem;"></i>
+    </div>
+    
+    <div class="container py-5 position-relative z-1">
+      <div class="row g-5 align-items-center">
+        <div class="col-lg-6 pe-lg-5" data-aos="fade-right">
+          <h2 class="display-heading fw-bold mb-4" style="font-size: 6rem; line-height:0.85;">KALKULATOR<br><span class="text-white" style="text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, 4px 4px 0 #000;">ANTI RIBUT</span></h2>
+          <p class="fs-4 fw-bold text-dark lh-sm text-capitalize">
+            Udah kelar milih menu? Masukin total nominalnya di sini sekalian jumlah temen lo. 
+            Sistem kita yang mikir masing-masing bayar berapa. Langsung tagih, nggak pake utang!
+          </p>
+        </div>
+        
+        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="card brutalist-card-dark bg-white border border-4 border-dark rounded-0 p-4 p-md-5 shadow-brutal-dark">
+            <h3 class="display-heading fs-1 mb-4 border-bottom border-2 border-dark pb-3">HITUNG CEPET</h3>
+            <form id="calcForm" class="text-capitalize">
+              
+              <div class="mb-4">
+                <label class="form-label fs-5 fw-bold text-uppercase d-flex align-items-center"><i class="ph-bold ph-money me-2 fs-4"></i> Total Rupiah (IDR)</label>
+                <input type="number" id="calcTotal" class="form-control brutalist-input border-3 border-dark rounded-0 fs-3 py-3 fw-bold" placeholder="Contoh: 150000">
+              </div>
+              
+              <div class="mb-4">
+                <label class="form-label fs-5 fw-bold text-uppercase d-flex align-items-center"><i class="ph-bold ph-users me-2 fs-4"></i> Jumlah Pasukan (Orang)</label>
+                <input type="number" id="calcPeople" class="form-control brutalist-input border-3 border-dark rounded-0 fs-3 py-3 fw-bold" placeholder="Contoh: 5">
+              </div>
+              
+              <button type="button" id="btnCalculate" class="btn btn-dark brutalist-btn-lg w-100 py-3 fs-3 fw-bold mb-0 text-uppercase d-flex align-items-center justify-content-center">
+                <i class="ph-bold ph-lightning text-warning me-2 fs-1"></i> GAS HITUNG
+              </button>
+              
+              <div class="result-box mt-4 border border-3 border-dark p-4 text-center d-none shadow-brutal-dark-sm" id="calcResultBox" style="background-color: var(--accent);">
+                <div class="fs-5 fw-bold text-uppercase mb-2">Per Kepala Genap Bayar:</div>
+                <div class="display-heading fw-bold m-0" id="calcResultVal" style="font-size: 3.5rem; word-break: break-all;">Rp 0</div>
+              </div>
+              
+              <!-- Check-out directly from calc if total is known -->
+              <button type="button" class="btn brutalist-btn-lg w-100 py-3 fs-4 fw-bold mt-4 d-none align-items-center justify-content-center text-uppercase border-3 text-white" style="background:#25D366; border-color:#000;" id="btnCheckoutCalc">
+                <i class="ph-fill ph-whatsapp fs-2 me-2"></i> LANJUT KE WA ADMIN
+              </button>
+              
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonial Section -->
+  <section id="testimonial" class="testimonial py-5 border-bottom border-dark border-4" style="background-color: #F5F5F5;">
+    <div class="container py-5">
+      <h2 class="display-heading text-center fw-bold mb-5" data-aos="fade-up" style="font-size: 5rem;">KATA MEREKA</h2>
+      <div class="row g-4 justify-content-center">
+        
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="card p-4 p-lg-5 border-3 border-dark rounded-0 h-100 bg-white shadow-brutal-dark">
+            <i class="ph-fill ph-quotes text-warning mb-4" style="font-size: 4rem;"></i>
+            <p class="fs-4 mb-5 fw-semibold" style="line-height:1.5;">"Gila bener akhir bulan masih bisa makan ayam geprek enak, patungan berlima cuma 16 ribuan. Fix langganan!"</p>
+            <div class="fw-bold fs-3 text-uppercase display-heading mt-auto">- Dimas, Anak Kos Samping</div>
+          </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="card p-4 p-lg-5 border-3 border-dark rounded-0 h-100 text-light shadow-brutal-dark" style="background-color: var(--bg-dark);">
+            <i class="ph-fill ph-quotes text-warning mb-4" style="font-size: 4rem;"></i>
+            <p class="fs-4 mb-5 fw-semibold" style="line-height:1.5;">"Penyelamat bgt pas ngadain perpisahan panitia. Gak ribet hitung, murah dapet porsi king kong. Sedappp."</p>
+            <div class="fw-bold fs-3 text-uppercase display-heading mt-auto text-warning">- Sarah, Ketua BEM</div>
+          </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-4 d-none d-lg-block" data-aos="fade-up" data-aos-delay="300">
+          <div class="card p-4 p-lg-5 border-3 border-dark rounded-0 h-100 bg-white shadow-brutal-dark">
+            <i class="ph-fill ph-quotes text-warning mb-4" style="font-size: 4rem;"></i>
+            <p class="fs-4 mb-5 fw-semibold" style="line-height:1.5;">"Topping kulit crispinya the best sih. Kalo lagi tajir dikit modal 20k per orang udah makan layaknya raja."</p>
+            <div class="fw-bold fs-3 text-uppercase display-heading mt-auto">- Toni, FT 2022</div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer bg-dark text-white py-5">
+    <div class="container-fluid px-4 px-lg-5 py-3">
+      <div class="row g-4 align-items-center justify-content-between">
+        <div class="col-md-5">
+           <h2 class="display-heading fw-bold mb-3 d-flex align-items-center">
+             <i class="ph-fill ph-fire text-warning me-2"></i> PORSIKOMPAK
+           </h2>
+           <p class="fs-5 text-light opacity-75 fw-semibold">Penyelamat dompet mahasiswa, tanpa kompromi rasa.</p>
+        </div>
+        <div class="col-md-4 text-md-end">
+           <a href="#" class="text-white text-decoration-none fs-2 me-4 hover-warning"><i class="ph-fill ph-instagram-logo"></i></a>
+           <a href="#" class="text-white text-decoration-none fs-2 hover-warning"><i class="ph-fill ph-tiktok-logo"></i></a>
+        </div>
+      </div>
+      <div class="border-top border-secondary mt-5 pt-4 text-center text-md-start mb-0 opacity-50 fw-semibold">
+        © 2026 PorsiKompak. All Rights Served. Reserved maksudnya.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cart Sidebar (Offcanvas) -->
+  <div class="offcanvas offcanvas-end border-start border-4 border-dark brutal-canvas" tabindex="-1" id="cartSidebar" aria-labelledby="cartSidebarLabel">
+    
+    <div class="offcanvas-header border-bottom border-4 border-dark bg-warning p-4">
+      <h3 class="offcanvas-title fw-bold fs-2 display-heading text-dark text-uppercase m-0 d-flex align-items-center" id="cartSidebarLabel">
+        <i class="ph-bold ph-shopping-cart me-2"></i> ORDERAN LO
+      </h3>
+      <button type="button" class="btn-close shadow-none p-3 fs-5" data-bs-dismiss="offcanvas" aria-label="Close" style="border: 3px solid #000; border-radius: 0; opacity: 1; background-color: #fff;"></button>
+    </div>
+    
+    <div class="offcanvas-body p-0 d-flex flex-column bg-white">
+      <div id="cartItems" class="p-3 p-md-4 flex-grow-1 overflow-auto d-flex flex-column gap-3">
+        <!-- Default State -->
+        <div class="text-center mt-5 mb-5 h-100 d-flex flex-column align-items-center justify-content-center opacity-50 text-uppercase">
+           <i class="ph-fill ph-empty ms-0 mb-3" style="font-size: 5rem;"></i>
+           <div class="fw-bold fs-4 text-dark">Keranjang masih sepi.</div>
+           <p class="fw-semibold">Yuk tambah menu kebangsaan dulu.</p>
+        </div>
+      </div>
+      
+      <div class="cart-summary p-3 p-md-4 border-top border-4 border-dark bg-light z-1 position-relative shadow-brutal-dark-sm-top" style="margin-top: -4px;">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <span class="fs-4 fw-bold text-uppercase display-heading">TOTAL EST</span>
+          <span class="fs-2 fw-bold display-heading" id="cartTotalVal">Rp 0</span>
+        </div>
+        <p class="small text-muted fw-bold mb-4 border border-dark p-2 text-center bg-white"><i class="ph-bold ph-info"></i> Order diproses via WhatsApp Admin</p>
+        <button class="btn brutalist-btn-lg w-100 py-3 fs-4 fw-bold d-flex align-items-center justify-content-center text-uppercase border-3 text-white" style="background:#25D366; border-color:#000;" id="checkoutWaBtn">
+          <i class="ph-fill ph-whatsapp fs-2 me-2"></i> GAS CHECKOUT VIA WA
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="script.js"></script>
+
+</body>
+</html>
